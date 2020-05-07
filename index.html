@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>drag drop connect</title>
+    <link rel="shortcut icon" type="image/png" href=""/>
+    <meta name="theme-color" content="#383838"/>
+</head>
+<body>
+    <!-- preloader -->
+    <style>.preloader{position:fixed;width:100vw;height:100vh;background:#fff;z-index:1000;left:0;top:0;}</style>
+    <div class="preloader"></div>
+    <main></main>
+
+    <div>
+        <button class="add_task"><i class="fas fa-plus"></i></button>
+        <button class="save_task"><i class="far fa-save"></i></button>
+    </div>
+    
+    <div class="drag_and_canvas_wrapper">
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="task_script_block" style="display:none">
+        <div class="task drag_block" id="1">
+            <div class="before" data-element="pseudoelement"></div>
+            <div class="after" data-element="pseudoelement"></div>
+            
+            <div class="task_wrapper">
+                <div class="task_status">
+                    <h6 class="status_in_progress">In Progress</h6>
+                    <h6 class="status_completed">Completed</h6>
+                </div>
+                <div class="task_buttons">
+                    <button class="complete"><i class="fas fa-check"></i></button>
+                    <button class="uncomplete"><i class="fas fa-undo-alt"></i></button>
+                    <button class="delete"><i class="far fa-trash-alt"></i></button>
+                </div>
+                <div class="task_content">
+                    <h6><input type="text" value="" placeholder="Task Title"></h6>
+                    <div><textarea cols="10" rows="3" value="" placeholder="Task Description"></textarea></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-custom.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

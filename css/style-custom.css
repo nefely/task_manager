@@ -1,0 +1,277 @@
+/* styles write here */
+body {
+	background-image: url(../img/main_bg.png);
+	background-position: bottom center;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+}
+body:after {
+	content: "";
+	position: absolute;
+	display: block;
+	left: 0;
+	top: 0;
+	background: rgba(255,255,255,0.75);
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+}
+main {
+	position: relative
+}
+section{
+	padding: 20px 0
+}
+/* default media */
+/* xl */
+@media screen and (min-width: 1200px) {}
+/* lg */
+@media screen and (min-width: 992px) and (max-width: 1199px) {}
+/* md */
+@media screen and (min-width: 768px) and (max-width: 991px) {}
+/* sm */
+@media screen and (min-width: 560px) and (max-width: 767px) {}
+/* xs */
+@media screen and (max-width: 559px) {}
+
+#canvas {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100vh;
+}
+.drag_and_canvas_wrapper {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+}
+.task_content {
+	width: 100%;
+	padding: 0 20px 20px 20px;   
+}
+.task_content h6 {
+	margin-bottom: 10px;
+}
+.task_content input,
+.task_content textarea {
+	width: 100%;
+	background: #F1F8F9;
+	padding: 5px;
+}
+.task_content textarea {
+	height: 80px;
+}
+
+.task {
+	position: relative;
+	z-index: 100;
+}
+.task_wrapper {
+	width: 300px;
+	height: 230px;
+	position: relative;
+    display: flex;
+    flex-wrap: wrap;
+	align-content: space-between;
+	border-radius: 4px;
+	cursor: grab;
+	background: var(--w);
+	box-shadow: var(--shadow_1);
+    z-index: 2;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.task:hover .task_wrapper {
+	box-shadow: var(--shadow_2);
+}
+.task_status {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #F7B74B;
+	width: 100%;
+	text-align: center;
+	height: 30px;
+	color: var(--w);
+	border-top-right-radius: 3px;
+	border-top-left-radius: 3px;
+}
+.task.completed .task_status {
+	background: #3BB7C2;
+}
+.task .status_in_progress ,
+.task.completed .status_completed  {
+	display: block;
+}
+.task.completed .status_in_progress ,
+.task .status_completed {
+	display: none;
+}
+.task .before {
+	position: absolute;
+	display: block;
+	top: calc(50% - 2px);
+	cursor: crosshair;
+	left: -8px;
+	width: 14px;
+	height: 14px;
+	background: #ee6e73;
+	border-radius: 50%;
+	box-shadow: var(--shadow_1);
+	z-index: 3;
+	-webkit-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+}
+.task .before:hover {
+	top: calc(50% - 7px);
+	left: -13px;
+	width: 24px;
+	height: 24px;
+}
+.task .before[data-is-active="true"] {
+	top: calc(50% - 7px);
+	left: -13px;
+	width: 24px;
+	height: 24px;
+}
+.task .after {
+	position: absolute;
+	display: block;
+	top: calc(50% - 2px);
+	cursor: crosshair;
+	right: -8px;
+	width: 14px;
+	height: 14px;
+	background: #ee6e73;
+	border-radius: 50%;
+	box-shadow: var(--shadow_1);
+	z-index: 3;
+	-webkit-transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    transition: all .1s ease-in-out;
+}
+.task .after:hover {
+	top: calc(50% - 7px);
+	right: -13px;
+	width: 24px;
+	height: 24px;
+}
+.task .after[data-is-active="true"]{
+	top: calc(50% - 7px);
+	right: -13px;
+	width: 24px;
+	height: 24px;
+}
+.task_buttons {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 10px 20px;
+}
+.task .complete ,
+.task.completed .uncomplete  {
+	display: block;
+}
+.task.completed .complete ,
+.task .uncomplete {
+	display: none;
+}
+.task_buttons button{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-left: 5px;
+}
+.task_buttons button i {
+	font-size: 1em;
+}
+.task_buttons .complete {
+	color: var(--w);
+	background: #3BB7C2;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.task_buttons .complete:active {
+	background: #3BB7C2;
+}
+.task_buttons .uncomplete {
+	color: var(--w);
+	background: #F7B74B;
+	-webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.task_buttons .uncomplete:active {
+	background: #F7B74B;
+}
+.task_buttons .delete {
+	color: var(--w);
+	background: #ee6e73;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.task_buttons .delete:active {
+	background: #ee6e73;
+}
+.add_task ,
+.save_task {
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+	width: 40px;
+	height: 40px;
+	color: var(--w);
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    box-shadow: var(--shadow_1);
+	background: #3BB7C2;
+    -webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    z-index: 3;
+}
+.add_task i,
+.save_task i{
+    font-size: 1em;
+}
+.save_task {
+	bottom: 80px;
+	background: #F7B74B;
+}
+.add_task:active ,
+.save_task:active {
+	bottom: 25px;
+	right: 25px;
+	width: 50px;
+	height: 50px;
+	background: #37b7ab;
+	-webkit-transition: all 0s ease-in-out;
+    -o-transition: all 0s ease-in-out;
+    transition: all 0s ease-in-out;
+}
+.save_task:active {
+	bottom: 75px;
+	background: #F7B74B;
+}
+.add_task:hover ,
+.save_task:hover {
+	box-shadow: var(--shadow_2);
+}
+.add_task i {
+	-webkit-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.add_task:hover i {
+	transform: rotate(90deg);
+}
+
+
